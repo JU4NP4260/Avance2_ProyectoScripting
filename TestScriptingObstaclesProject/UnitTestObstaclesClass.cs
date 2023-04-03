@@ -1,3 +1,5 @@
+using NUnit.Framework;
+
 namespace TestScriptingObstaclesProject
 {
     public class ObstaclesClass_Tests
@@ -15,7 +17,7 @@ namespace TestScriptingObstaclesProject
         [Test]
         public void IsNotNull()
         {
-            Assert.Greater(obstaculo.power, 0);
+            Assert.Greater(obstaculo.Power, 0);
         }
 
         [Test]
@@ -23,12 +25,12 @@ namespace TestScriptingObstaclesProject
         {
             // Arrange
             int powerScale = random.Next(1,11);
-            int originalPower = obstaculo.power;
+            int originalPower = obstaculo.Power;
             int newPower = obstaculo.ScalePower(originalPower, powerScale);
 
             // Assert
             Assert.That(newPower, Is.EqualTo(originalPower * powerScale));
-            Assert.That(obstaculo.power, Is.EqualTo(newPower));
+            Assert.That(obstaculo.Power, Is.EqualTo(newPower));
         }
     }
 
@@ -47,10 +49,10 @@ namespace TestScriptingObstaclesProject
         {
             Player player = new Player(10, 1);
             Angel angel = new Angel(1);
-            player.SumarVida(angel.power);
+            player.SumarVida(angel.Power);
             int playerHp = player.vidaActual;
             if(angel == null) { Assert.Fail(); }
-            else { if (angel.power + playerHp > playerHp) { Assert.Pass(); } }
+            else { if (angel.Power + playerHp > playerHp) { Assert.Pass(); } }
         }
 
         [Test]

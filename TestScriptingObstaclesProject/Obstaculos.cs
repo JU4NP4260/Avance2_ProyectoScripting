@@ -8,31 +8,27 @@ namespace TestScriptingObstaclesProject
 {
     public class Obstaculo
     {
-        //[Header("Power")]
-        public int power;
+        int power;
         public int probabilidadMin = 1;     //Temporalmente públicos para revisar que valores llevan a una buena progresión
-        public int probabilidadMax = 16;
+        public int probabilidadMax = 10;
 
-        //Just For C# implementation
-        Random random = new Random();
+        public int Power { get => power; }
 
-        public Obstaculo(int power)
+        public Obstaculo(int x)
         {
-            this.power = power;
+            int G = GetPower();
+            power = G * x + 1;
         }
 
-        public void GetPower()
+        public int GetPower()
         {
-            //First is UnityEngine.Random implemetation
-            //power = Random.Range(probabilidadMin, probabilidadMax);
-
-            //Second is C# pure Implementation
-            power = random.Next(probabilidadMin, probabilidadMax);
+            Random random= new Random();
+            return random.Next(probabilidadMin, probabilidadMax);
         }
 
-        public int ScalePower(int originalPower, int powerScale)
+        public int ScalePower(int power, int powerScale)
         {
-            power = (originalPower * powerScale);
+            power = (power * powerScale);
             return power;
         }
     }
