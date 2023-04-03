@@ -45,12 +45,44 @@ namespace TestScriptingObstaclesProject
         [Test]
         public void SumVida()
         {
-            Player player = new Player(10,10,true,1, 1);
+            Player player = new Player(10, 1);
             Angel angel = new Angel(1);
             player.SumarVida(angel.power);
             int playerHp = player.vidaActual;
             if(angel == null) { Assert.Fail(); }
             else { if (angel.power + playerHp > playerHp) { Assert.Pass(); } }
+        }
+
+        [Test]
+        public void PlayerPierde()
+        {
+            Player player = new Player(10, 1);
+            player.comparePower(15);
+            Assert.IsTrue(player.alive == false);
+        }
+
+        [Test]
+        public void PlayerGana()
+        {
+            Player player = new Player(10, 1);
+            player.comparePower(5);
+            Assert.IsTrue(player.poderActual == 15);
+        }
+
+        [Test]
+        public void PlayerGear()
+        {
+            Player player = new Player(10, 1);
+            player.GetEquipment(1);
+            Assert.IsTrue(player.poderActual == 20);
+        }
+
+        [Test]
+        public void PlayerGear2()
+        {
+            Player player = new Player(10, 1);
+            player.GetEquipment(5);
+            Assert.IsTrue(player.poderActual == 15);
         }
     }
 }

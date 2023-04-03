@@ -11,15 +11,14 @@ namespace TestScriptingObstaclesProject
     {
         readonly int PoderBase = 5;
         public int poderActual;
-        bool alive = true;
+        public bool alive = true;
         readonly int VidaBase = 3;
         public int vidaActual;
 
-        public Player(int poderBase, int poderActual, bool alive, int vidaBase, int vidaActual)
+        public Player(int poderBase, int vidaBase)
         {
             this.PoderBase = poderBase;
-            this.poderActual = poderActual;
-            this.alive = alive;
+            this.poderActual = poderBase;
             this.VidaBase = vidaBase;
             this.vidaActual = vidaActual;
         }
