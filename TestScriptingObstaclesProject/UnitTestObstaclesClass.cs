@@ -2,7 +2,7 @@ using NUnit.Framework;
 
 namespace TestScriptingObstaclesProject
 {
-    public class ObstaclesClass_Tests
+    public class ObstaclesTests
     {
         public Obstaculo obstaculo;
         Random random = new Random();
@@ -24,26 +24,27 @@ namespace TestScriptingObstaclesProject
         public void Test_ScalePower()
         {
             // Arrange
-            int powerScale = random.Next(1,11);
-            int originalPower = obstaculo.Power;
-            int newPower = obstaculo.ScalePower(originalPower, powerScale);
+            Random random = new Random();
+            int rndScalePower = random.Next(1, 11);
+            Obstaculo obstaculo = new Obstaculo(rndScalePower);
+            int obsPower = obstaculo.Power;
 
             // Assert
-            Assert.That(newPower, Is.EqualTo(originalPower * powerScale));
-            Assert.That(obstaculo.Power, Is.EqualTo(newPower));
+            Assert.That(obsPower, Is.EqualTo(obstaculo.G * rndScalePower + 1));
+        }
+
+        [Test]
+        public void GiveChestEquipment()
+        {
+            Player player = new Player(10, 1);
+            int oldPower = player.poderActual;
+            player.GetEquipment(1);
+            Assert.IsTrue(player.poderActual != oldPower);
         }
     }
 
     public class PlayerTest
     {
-        Player player;
-        Angel angel;
-
-        //[SetUp]
-        //public void Setup()
-        //{
-        //}
-
         [Test]
         public void SumVida()
         {

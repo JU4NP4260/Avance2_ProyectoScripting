@@ -9,14 +9,15 @@ namespace TestScriptingObstaclesProject
     public class Obstaculo
     {
         int power;
-        public int probabilidadMin = 1;     //Temporalmente públicos para revisar que valores llevan a una buena progresión
+        public int G;
+        public int probabilidadMin = 1;
         public int probabilidadMax = 10;
 
         public int Power { get => power; }
 
         public Obstaculo(int x)
         {
-            int G = GetPower();
+            G = GetPower();
             power = G * x + 1;
         }
 
@@ -24,12 +25,6 @@ namespace TestScriptingObstaclesProject
         {
             Random random= new Random();
             return random.Next(probabilidadMin, probabilidadMax);
-        }
-
-        public int ScalePower(int power, int powerScale)
-        {
-            power = (power * powerScale);
-            return power;
         }
     }
 
