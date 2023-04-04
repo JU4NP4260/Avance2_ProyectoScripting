@@ -8,11 +8,17 @@ namespace TestScriptingObstaclesProject
 {
     public class Mago : Obstaculo
     {
+        private Elementos element;
+
         public Mago(int power) : base(power)
         {
+            Random random= new Random();
 
+            int i = random.Next(0,3);
+
+            element = (Elementos)Enum.ToObject(typeof(Elementos),i); 
         }
 
-        enum Elementos { Fire, Water, Earth }
+        public Elementos Element { get => element;}
     }
 }

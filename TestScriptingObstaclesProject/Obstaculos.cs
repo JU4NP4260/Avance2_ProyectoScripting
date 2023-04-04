@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace TestScriptingObstaclesProject
 {
-    public class Obstaculo
+    public enum Elementos { Fire, Water, Earth }
+
+    public class Obstaculo : ICore
     {
         int power;
         public int G;
@@ -25,6 +27,16 @@ namespace TestScriptingObstaclesProject
         {
             Random random= new Random();
             return random.Next(probabilidadMin, probabilidadMax);
+        }
+
+        public void OnDying()
+        {
+            //F
+        }
+
+        public void OnWining(int addingPower) 
+        {
+            power+= addingPower;
         }
     }
 

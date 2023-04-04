@@ -10,7 +10,12 @@ namespace TestScriptingObstaclesProject
     {
         public Chest(int power) : base(power)
         {
+            
+        }
 
+        public Equipment GeneratesAnEquipment() 
+        {
+            return new Equipment((int)MathF.Floor(base.Power/2));
         }
 
 

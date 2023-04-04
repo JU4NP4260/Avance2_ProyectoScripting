@@ -6,16 +6,9 @@ using System.Threading.Tasks;
 
 namespace TestScriptingObstaclesProject
 {
-    public class ICore
+    public interface ICore
     {
-        public void CuandoMuere()
-        {
-
-        }
-
-        public void CuandoGana() 
-        {
-        
-        }
+        public void OnDying() { }
+        public void OnWining(int addingPower) { }
     }
 }

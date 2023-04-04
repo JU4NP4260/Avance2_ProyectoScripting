@@ -10,11 +10,17 @@ namespace TestScriptingObstaclesProject
     {
         public static DungeonSystem Intance = new DungeonSystem();
 
+        Grid<Cell> grid;
+
         public Grid<Cell> GenerateDungeon(int width, int height)
         {
-            Grid<Cell> grid;
             grid = new Grid<Cell>(width, height, (Grid<Cell> g, int x, int y) => new Cell(g, x, y));
             return grid;
+        }
+
+        public Cell GetStartCell() 
+        {
+            return grid.GetValue(0, 0);
         }
     }
 

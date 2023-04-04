@@ -38,7 +38,8 @@ namespace TestScriptingObstaclesProject
         {
             Player player = new Player(10, 1);
             int oldPower = player.poderActual;
-            player.GetEquipment(1);
+            Chest OBS = new Chest(8);
+            player.Combat(OBS);
             Assert.IsTrue(player.poderActual != oldPower);
         }
     }
@@ -59,24 +60,31 @@ namespace TestScriptingObstaclesProject
         [Test]
         public void PlayerPierde()
         {
+            DungeonSystem.Intance.GenerateDungeon(10,10);
             Player player = new Player(10, 1);
-            player.comparePower(15);
+            Obstaculo OBS = new Obstaculo(15);
+            int OBSstartPower = OBS.Power;
+            player.Figth(OBS);
             Assert.IsTrue(player.alive == false);
+            Assert.IsTrue(OBS.Power == OBSstartPower + 10);
+            Assert.IsTrue(player.CurrentCell == DungeonSystem.Intance.GetStartCell());
         }
 
         [Test]
         public void PlayerGana()
         {
             Player player = new Player(10, 1);
-            player.comparePower(5);
-            Assert.IsTrue(player.poderActual == 15);
+            Obstaculo OBS = new Obstaculo(0);
+            player.Figth(OBS);
+            Assert.IsTrue(player.poderActual > 10);
         }
 
         [Test]
         public void PlayerGear()
         {
             Player player = new Player(10, 1);
-            player.GetEquipment(1);
+            Equipment equipment = new Equipment(10);
+            player.AddEquipment(equipment);
             Assert.IsTrue(player.poderActual == 20);
         }
 
@@ -84,7 +92,8 @@ namespace TestScriptingObstaclesProject
         public void PlayerGear2()
         {
             Player player = new Player(10, 1);
-            player.GetEquipment(5);
+            Equipment equipment = new Equipment(5);
+            player.AddEquipment(equipment);
             Assert.IsTrue(player.poderActual == 15);
         }
     }

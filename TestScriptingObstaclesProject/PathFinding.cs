@@ -26,15 +26,6 @@ namespace TestScriptingObstaclesProject
             openList = new List<CellTesting> { startCell };
             closeList = new List<CellTesting>();
 
-            for (int x = 0; x < grid.GetWidth; x++)
-            {
-                for (int y = 0; y < grid.GetHeight; y++)
-                {
-                    CellTesting cell = grid.GetValue(x, y);
-                    cell.lastNode = null;
-                }
-            }
-
             while (openList.Count > 0)
             {
                 CellTesting currentCell = GetHighestPowerCell(openList);
@@ -44,7 +35,7 @@ namespace TestScriptingObstaclesProject
                 }
 
                 openList.Remove(currentCell);
-                P.cuandoGana(currentCell.OBS.Power);
+                P.Combat(currentCell.OBS);
                 closeList.Add(currentCell);
 
                 foreach (CellTesting cell in GetNeighboursList(currentCell))
