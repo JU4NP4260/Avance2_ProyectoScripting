@@ -5,3 +5,4 @@
 - Manuela Cuervo
 - Pablo Velez
  
+Te quedamos debiendo las pruebas de la implementación de los elementos
