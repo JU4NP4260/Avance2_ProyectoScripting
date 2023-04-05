@@ -5,4 +5,6 @@
 - Manuela Cuervo
 - Pablo Velez
  
-Te quedamos debiendo las pruebas de la implementación de los elementos
+ (BONIFICACIONES): https://github.com/JU4NP4260/Main-and-pause-Menu-Scripting.git
+ 
+Te quedamos debiendo las pruebas de la implementación de los elementos.
